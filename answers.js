@@ -38,14 +38,25 @@
 //Re-do exercise 1 by first filtering the input array, and then printing the numbers from the filtered array. 
 // Your code will look something like: return arr.filter(...).forEach(...).
 
-var theArray = [1, 2, -3, 4, -5];
+// var theArray = [1, 2, -3, 4, -5];
 
-function printPositives (numArray) {
-    numArray.filter(function(num){
-        if (num >= 0){
-            console.log(num);
-        }
-    });
+// function printPositives (numArray) {
+//     numArray.filter(function(num){
+//         if (num >= 0){
+//             console.log(num);
+//         }
+//     });
+// }
+
+// printPositives(theArray);
+
+// EXERCISE 3
+// Write a function called filterArray that takes an array AND a function as arguments. 
+// Your filter function should return a new array that contains only the elements where the passed function returns a truthy value.
+
+// NOTE: You are allowed to use Array.prototype.filter to answer this question.
+//NOTE 2: This is a bit of a trick question, the answer is a one-liner :)
+
+function filterArray (numArray, anyFunction) {
+    return numArray.filter(anyFunction);
 }
-
-printPositives(theArray);
