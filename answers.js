@@ -128,30 +128,69 @@
 // Hint: Javascript has a special value called Infinity, which is higher than any other number. 
 //See if you can initialize your reduce accumulator with Infinity and -Infinity :)
 
-function highLow (numArray) {
-    var getsHighest = numArray.reduce(function(highestNumber, currentNumber) {
-        if (currentNumber > highestNumber) {
-            return currentNumber;
-        }
-        else {
-            return highestNumber;
-        }
-    });
+// function highLow (numArray) {
+//     var getsHighest = numArray.reduce(function(highestNumber, currentNumber) {
+//         if (currentNumber > highestNumber) {
+//             return currentNumber;
+//         }
+//         else {
+//             return highestNumber;
+//         }
+//     });
     
-    var getsLowest = numArray.reduce(function(lowestNumber, currentNumber) {
-        if (currentNumber < lowestNumber) {
-            return currentNumber;
-        }
-        else {
-            return lowestNumber;
-        }
-    });
+//     var getsLowest = numArray.reduce(function(lowestNumber, currentNumber) {
+//         if (currentNumber < lowestNumber) {
+//             return currentNumber;
+//         }
+//         else {
+//             return lowestNumber;
+//         }
+//     });
     
-    var result = {
-    highest: getsHighest,
-    lowest: getsLowest
-    };
-    console.log(result);
-}
+//     var result = {
+//     highest: getsHighest,
+//     lowest: getsLowest
+//     };
+//     console.log(result);
+// }
 
-highLow([2, 342234, 6, -5, 8, 11]);
+// highLow([2, 342234, 6, -5, 8, 11]);
+// REFACTOR THIS TO ONE REDUCE FUNCTION
+
+
+//EXERCISE 7
+// Expanding on exercise 6, write a function called highLowTwo that takes an array of numbers, 
+// and returns the higest, second highest, lowest, and second lowest numbers.
+
+// For example, starting with [1, -10, 20, 40, 5], your function should return:
+
+// {
+//   "highest": 40,
+//   "secondHighest": 20,
+//   "lowest": -10,
+//   "secondLowest": 5
+// }
+
+function highLowTwo (numArray) {
+     var twoHighestandLowest = numArray.reduce(function(initialNum, currentNumber) {
+         if (currentNumber > initialNum.highest) {
+            initialNum.highest = currentNumber; 
+         }
+         if (currentNumber > initialNum.highest) {
+            initialNum.highest = currentNumber; 
+         }
+         if (currentNumber < initialNum.highest) {
+             initialNum.lowest = currentNumber;
+         }
+         return initialNum;
+     },
+     {
+     highest: -Infinity,
+     secondHighest: -Infinity,
+     lowest: Infinity,
+     secondLowest: Infinity
+    });
+    return twoHighestandLowest;
+ }
+
+ highLowTwo([2, 342234, 6, -5, 8, 11]);
