@@ -67,17 +67,53 @@
 
 //Hint: You can use String.prototype.split to split the string into an array of words.
 
-function longestWord (anyString) {
-    var strSplit = anyString.split(' ');
+// function longestWord (anyString) {
+//     var strSplit = anyString.split(' ');
     
-    var longestWord = strSplit.reduce(function(longest, currentWord) {
-        if(currentWord.length > longest.length)
-           return currentWord;
-        else
-           return longest;
-    }, "");
+//     var longestWord = strSplit.reduce(function(longest, currentWord) {
+//         if(currentWord.length > longest.length)
+//           return currentWord;
+//         else
+//           return longest;
+//     }, "");
 
-return longestWord;
+// return longestWord;
+// }
+
+// console.log(longestWord("I am the greatest rapper of all time"));
+
+// EXERCISE 5
+// Write a function called countVowels that takes a string and returns the number of vowels in the string. 
+// You should use Array.prototype.reduce to do your work.
+
+//Hint: You can use String.prototype.split again. 
+//There is a way to use it to split a string by character. Try to Google it :)
+
+//Hint 2: You can create an array of vowels and use Array.prototype.indexOf to check if the current letter is a vowel.
+
+//the ghetto way!!
+// function countVowels (anyString) {
+//     var vowelsCount = 0;
+    
+//     for (var i = 0; i <= anyString.length - 1; i++){
+//         if (anyString.charAt(i) == "a" || anyString.charAt(i) == "e" || anyString.charAt(i) == "i" || anyString.charAt(i) == "o" || anyString.charAt(i) == "u") {
+//           vowelsCount += 1;
+//         }
+//     }
+//     console.log(vowelsCount);
+// }
+
+// countVowels("I am the greatest rapper alive");
+
+function countVowels (anyString) {
+    var strSplit = anyString.split('');
+
+    return strSplit.reduce(function(totalVowels, isVowel) {
+        if (isVowel === "a" || isVowel === "e" || isVowel === "i" || isVowel === "o" || isVowel === "u") {
+            totalVowels += 1;
+        }
+        return totalVowels;
+    }, 0);
 }
 
-console.log(longestWord("I am the greatest rapper of all time"));
+console.log(countVowels("I am the greatest rapper alive"));
