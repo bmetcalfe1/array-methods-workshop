@@ -176,21 +176,18 @@ function highLowTwo (numArray) {
          if (currentNumber > initialNum.highest) {
             initialNum.highest = currentNumber; 
          }
-         if (currentNumber > initialNum.highest) {
-            initialNum.highest = currentNumber; 
+         if (currentNumber < initialNum.lowest) {
+            initialNum.lowest = currentNumber; 
          }
-         if (currentNumber < initialNum.highest) {
-             initialNum.lowest = currentNumber;
-         }
-         return initialNum;
-     },
+    return initialNum;
+    },
      {
      highest: -Infinity,
      secondHighest: -Infinity,
      lowest: Infinity,
      secondLowest: Infinity
     });
-    return twoHighestandLowest;
+    console.log(twoHighestandLowest);
  }
 
  highLowTwo([2, 342234, 6, -5, 8, 11]);
