@@ -174,10 +174,18 @@
 function highLowTwo (numArray) {
      var twoHighestandLowest = numArray.reduce(function(initialNum, currentNumber) {
          if (currentNumber > initialNum.highest) {
+            initialNum.secondHighest = initialNum.highest; 
             initialNum.highest = currentNumber; 
          }
+         if (currentNumber < initialNum.highest && currentNumber > initialNum.secondHighest) {
+            initialNum.secondHighest = currentNumber; 
+         }
          if (currentNumber < initialNum.lowest) {
+            initialNum.secondLowest = initialNum.lowest; 
             initialNum.lowest = currentNumber; 
+         }
+         if (currentNumber > initialNum.lowest && currentNumber < initialNum.secondLowest) {
+            initialNum.secondLowest = currentNumber; 
          }
     return initialNum;
     },
