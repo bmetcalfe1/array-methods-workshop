@@ -171,31 +171,81 @@
 //   "secondLowest": 5
 // }
 
-function highLowTwo (numArray) {
-     var twoHighestandLowest = numArray.reduce(function(initialNum, currentNumber) {
-         if (currentNumber > initialNum.highest) {
-            initialNum.secondHighest = initialNum.highest; 
-            initialNum.highest = currentNumber; 
-         }
-         if (currentNumber < initialNum.highest && currentNumber > initialNum.secondHighest) {
-            initialNum.secondHighest = currentNumber; 
-         }
-         if (currentNumber < initialNum.lowest) {
-            initialNum.secondLowest = initialNum.lowest; 
-            initialNum.lowest = currentNumber; 
-         }
-         if (currentNumber > initialNum.lowest && currentNumber < initialNum.secondLowest) {
-            initialNum.secondLowest = currentNumber; 
-         }
-    return initialNum;
-    },
-     {
-     highest: -Infinity,
-     secondHighest: -Infinity,
-     lowest: Infinity,
-     secondLowest: Infinity
-    });
-    console.log(twoHighestandLowest);
- }
+// function highLowTwo (numArray) {
+//      var twoHighestandLowest = numArray.reduce(function(initialNum, currentNumber) {
+//          if (currentNumber > initialNum.highest) {
+//             initialNum.secondHighest = initialNum.highest; 
+//             initialNum.highest = currentNumber; 
+//          }
+//          if (currentNumber < initialNum.highest && currentNumber > initialNum.secondHighest) {
+//             initialNum.secondHighest = currentNumber; 
+//          }
+//          if (currentNumber < initialNum.lowest) {
+//             initialNum.secondLowest = initialNum.lowest; 
+//             initialNum.lowest = currentNumber; 
+//          }
+//          if (currentNumber > initialNum.lowest && currentNumber < initialNum.secondLowest) {
+//             initialNum.secondLowest = currentNumber; 
+//          }
+//     return initialNum;
+//     },
+//      {
+//      highest: -Infinity,
+//      secondHighest: -Infinity,
+//      lowest: Infinity,
+//      secondLowest: Infinity
+//     });
+//     console.log(twoHighestandLowest);
+//  }
 
- highLowTwo([2, 342234, 6, -5, 8, 11]);
+//  highLowTwo([2, 342234, 6, -5, 8, 11]);
+ 
+ 
+ 
+// EXERCISE 8
+
+// Write a function called countChars that takes a string, and returns an object where the keys are letters, 
+//and the value is the number of times that letter appears.
+
+// For example, with input "hello world", the output should be:
+
+// {
+//   "h": 1,
+//   "e": 1,
+//   "l": 3,
+//   "o": 2,
+//   "w": 1,
+//   "r": 1,
+//   "d": 1
+// }
+// NOTE: Unlike arrays, objects don't have any ordering on them. 
+//When you print your object on the console, your keys may be displayed in a different order, and it does not matter.
+var initialValue = {};
+
+function countChars (inputString) {
+    
+    var splitStringMakeArray = inputString.split("");
+    
+    var numEachLetter = function(letterCount, currentLetter) {
+    if (!letterCount[currentLetter]) {
+        letterCount[currentLetter] = 1;
+    }
+    else {
+        letterCount[currentLetter] += 1;
+    }
+    return letterCount;
+    };
+    var result = splitStringMakeArray.reduce(numEachLetter, initialValue);
+    console.log(result);
+}
+countChars('I am the greatest rapper alive');
+
+// EXERCISE 9
+
+// function peopleById (arrayOfPeople) {
+//     var personObjectCreator = arrayOfPeople.reduce(function(peopleObj, currentPerson) {
+    
+// }, {});
+
+// peopleById();
+
